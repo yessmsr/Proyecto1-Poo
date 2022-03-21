@@ -20,7 +20,7 @@ public class Tablero{
     }
         
     public void agregarComponentes(){
-        ventana.setLayout(new GridLayout(50,50)); //Se define el tamañp
+        ventana.setLayout(new GridLayout(50,50)); //Se define el tamaño
 
     ///for para agregar paneles.
     for(int i=0;i<50*50;i++){
