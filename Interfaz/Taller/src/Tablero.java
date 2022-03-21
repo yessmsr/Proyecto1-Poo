@@ -20,10 +20,10 @@ public class Tablero{
     }
         
     public void agregarComponentes(){
-        ventana.setLayout(new GridLayout(50,50)); //Se define el tamaño
+        ventana.setLayout(new GridLayout(25,25)); //Se define el tamaño
 
     ///for para agregar paneles.
-    for(int i=0;i<50*50;i++){
+    for(int i=0;i<25*25;i++){
         JPanel panel=new JPanel();
         panel.setBackground(new Color(20,100,70));  ///se asigna un color.
         Border borde;
