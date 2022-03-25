@@ -6,7 +6,7 @@ import java.awt.*;
 
 
 public class Tablero{
-    JFrame ventana; // Etiqueta para crear la ventana
+    JFrame ventana; // Etiqueta para crear la ventan
     JPanel panelBotones;//Se hace el panel de botones
     ImageIcon colmena; // Crea la imagen colmena
 
@@ -16,6 +16,7 @@ public class Tablero{
     JButton botonSiguiente;
 
     Color casillas;
+
 
     public Tablero(){
         ventana = new JFrame("Mapa"); //inicializa la ventana y le da el nombre
@@ -41,6 +42,7 @@ public class Tablero{
         
     }
     }
+    
     public void agregarColmena(){
         colmena = new ImageIcon("imagenes/descarga.jpg"); //Crea la imagen, debe colocarse la ruta de donde se guardo
         imagen = new JLabel(colmena); //Se agrega la imagen a la ventana usando la etiqueta
@@ -55,3 +57,4 @@ public class Tablero{
     }
      
 }
+
