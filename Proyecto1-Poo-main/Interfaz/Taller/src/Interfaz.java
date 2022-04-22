@@ -4,17 +4,15 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-
 public class Interfaz implements ActionListener{
     JFrame ventana; // Etiqueta para crear la ventana
-    JLabel casillas [][] = new JLabel[30][35];
+    JLabel casillas [][] = new JLabel[30][30];
     JLabel casillaJLabel,recurso1,recurso2,recurso3,recurso4,recurso5,recurso6,recurso7, recurso8;
     JLabel amenaza1,amenaza2,amenaza3,amenaza4,amenaza5,amenaza6,amenaza7,recurso9,recurso10;
-    JLabel ob1, ob2, ob3, ob4, ob5, ob6, ob7;
-    JButton botonSiguiente;
-    JButton botonObjetos;
+    JLabel ob1, ob2, ob3, ob4, ob5, ob6, ob7, abejaDef1, abejaDef2, abejaDef3, abeja4, abeja5, abeja6;
+    JButton botonSiguiente, botonObjetos;
     JPanel panelBotones, panelBotones1;
-
+    private int player;
     JLabel c0,c1,c2,c3; 
     Color base, base2;
 
@@ -29,7 +27,6 @@ public class Interfaz implements ActionListener{
     }
     public void agregarComponentes(){
     ventana.setLayout(new GridLayout(30,25)); //Se define el tamaño
-    ///for para agregar paneles.
     for (int j=0;j<30;j++){
         for(int i=0;i<25;i++){
             JLabel casillaJLabel = new JLabel();
@@ -37,15 +34,13 @@ public class Interfaz implements ActionListener{
             borde = BorderFactory.createLineBorder(Color.black);  ///se le pone un borde.
             //casillaJLabel.setText("("+i+","+j+")");
             casillaJLabel.setBorder(borde);
-            casillaJLabel.setFont(new Font("Serif", Font.PLAIN, 18));
+            casillaJLabel.setFont(new Font("Serif", Font.PLAIN, 19));
             casillas[i][j] = casillaJLabel;
             ventana.add(casillaJLabel); ///Se agrega el panel a la cuadricula una vez que tiene color y borde.
-        }  
+        } 
     }
-    //casillas[0][0].setText("  🐝");
     }
     public void agregarMapa(){
-        //se agrega la base al mapa 
         base=new Color(255, 204, 0); base2=new Color(102, 51, 0);//Definicion del color de las casillas de la base
         c0= new JLabel(""); c1= new JLabel(""); c2= new JLabel(""); c3= new JLabel("");
         c0.setOpaque(true); c1.setOpaque(true); c2.setOpaque(true); c3.setOpaque(true);
@@ -95,12 +90,10 @@ public class Interfaz implements ActionListener{
         ventana.add(panelBotones, BorderLayout.CENTER);
         ventana.add(panelBotones1, BorderLayout.CENTER);
     }
-
     @Override //Se tiene para la implementación de las acciones del boton
     public void actionPerformed(ActionEvent e) {
         if(e.getSource().equals(botonObjetos)){
-            casillas[10][0].setText("   🌸"); casillas[10][0].setForeground(Color.red);
-            casillas[11][0].setText("   🌸"); casillas[11][0].setForeground(Color.red);
+            casillas[10][0].setText("   🌸"); casillas[10][0].setForeground(Color.red);casillas[11][0].setText("   🌸"); casillas[11][0].setForeground(Color.red);
             casillas[12][1].setText("   🌸"); casillas[12][1].setForeground(Color.red);
             casillas[11][1].setText("   🌸"); casillas[11][1].setForeground(Color.red);recurso1=casillas[11][1];
             casillas[0][5].setText("   🌸"); casillas[0][5].setForeground(Color.red);
@@ -164,7 +157,156 @@ public class Interfaz implements ActionListener{
             casillas[2][1].setText("   💀");casillas[2][1].setForeground(Color.black);
             casillas[3][1].setText("   💀");casillas[3][1].setForeground(Color.black);
             casillas[1][0].setText("   💀");casillas[1][0].setForeground(Color.black); amenaza7=casillas[1][0];
+            //Abejas
+            casillas[0][0].setText("  🐝");casillas[0][0].setForeground(Color.orange); abejaDef1=casillas[0][0];
+            casillas[10][3].setText("  🐝"); casillas[10][3].setForeground(Color.orange); abejaDef2=casillas[10][3];
+            casillas[9][0].setText("  🐝");casillas[9][0].setForeground(Color.orange); abejaDef3=casillas[9][0];
+            casillas[9][3].setText("  🐝"); abeja4=casillas[9][3];
+            casillas[21][9].setText("  🐝"); abeja5=casillas[21][9];
+            casillas[5][2].setText("  🐝"); abeja6=casillas[5][2];
         }
-        
+        if(e.getSource().equals(botonSiguiente)){
+            player=player+1;
+            switch(player){
+                case 0:
+                casillas[0][0].setText("  🐝");casillas[0][0].setForeground(Color.orange); abejaDef1=casillas[0][0];
+                break;
+                case 1:
+                    casillas[0][0].setText("  ");
+                    casillas[1][1].setText("  🐝");casillas[1][1].setForeground(Color.orange); abejaDef1=casillas[1][1];
+                break;
+                case 2:
+                    casillas[1][1].setText("  ");
+                    casillas[2][1].setText("  🐝");casillas[2][1].setForeground(Color.orange); abejaDef1=casillas[2][1];
+                break;
+                case 3:
+                    casillas[2][1].setText("   💀");casillas[2][1].setForeground(Color.black);
+                    casillas[3][2].setText("  🐝");casillas[3][2].setForeground(Color.orange); abejaDef1=casillas[3][2];
+                break;
+                case 4:
+                    casillas[3][2].setText("  ");
+                    casillas[4][3].setText("  🐝");casillas[4][3].setForeground(Color.orange); abejaDef1=casillas[4][3];
+                break;
+                case 5:
+                    casillas[4][3].setText("  ");
+                    casillas[5][4].setText("  🐝");casillas[5][4].setForeground(Color.orange); abejaDef1=casillas[5][4];
+                break;
+                case 6:
+                    casillas[5][4].setText("  ");
+                    casillas[6][4].setText("  🐝");casillas[6][4].setForeground(Color.orange); abejaDef1=casillas[6][4];
+                break;
+                case 7:
+                    casillas[6][4].setText("  ");
+                    casillas[7][5].setText("  🐝");casillas[7][5].setForeground(Color.orange); abejaDef1=casillas[7][5];
+                break;
+                case 8:
+                    casillas[7][5].setText("  ");
+                    casillas[8][6].setText("  🐝");casillas[8][6].setForeground(Color.orange); abejaDef1=casillas[8][6];
+                break;
+                case 9:
+                    casillas[8][6].setText("  ");
+                    casillas[9][7].setText("  🐝");casillas[9][7].setForeground(Color.orange); abejaDef1=casillas[9][7];
+                break;
+                case 10:
+                    casillas[9][7].setText("  ");
+                    casillas[10][8].setText("  🐝");casillas[10][8].setForeground(Color.orange); abejaDef1=casillas[10][8];
+                break;
+                case 11:
+                    casillas[10][8].setText("  ");
+                    casillas[12][10].setText("  🐝");casillas[12][10].setForeground(Color.orange); abejaDef1=casillas[12][10];
+                break;
+                case 12:
+                    casillas[12][10].setText("  ");
+                    casillas[14][12].setText("  🐝");casillas[14][12].setForeground(Color.orange); abejaDef1=casillas[14][12];
+                break;
+                case 13:
+                    casillas[14][12].setText("  ");
+                    casillas[16][14].setText("  🐝");casillas[16][14].setForeground(Color.orange); abejaDef1=casillas[16][14];
+                break;
+                case 14:
+                    casillas[16][14].setText("  "); 
+                    casillas[17][15].setText("  🐝");casillas[17][15].setForeground(Color.orange); abejaDef1=casillas[17][15];
+                    casillas[18][15].setText("   "); 
+                    casillas[18][16].setText("   ");casillas[19][16].setText("   ");
+                    casillas[3][22].setText("   🌸");casillas[3][22].setForeground(Color.red);
+                    casillas[2][21].setText("   🌸"); casillas[2][21].setForeground(Color.red);
+                    casillas[3][21].setText("   🌸"); casillas[3][21].setForeground(Color.red);
+                    casillas[4][22].setText("   🌸"); casillas[4][22].setForeground(Color.red);recurso5=casillas[4][22];
+                break;
+                case 15:
+                    casillas[17][15].setText("  ");
+                    casillas[20][18].setText("  🐝");casillas[20][18].setForeground(Color.orange); abejaDef1=casillas[20][18];
+                break;
+                case 16:
+                    casillas[20][18].setText("  ");
+                    casillas[22][19].setText("  🐝");casillas[22][19].setForeground(Color.orange); abejaDef1=casillas[22][19];
+                break;
+                case 17:
+                    casillas[22][19].setText("  ");
+                    casillas[24][20].setText("  🐝");casillas[24][20].setForeground(Color.orange); abejaDef1=casillas[24][20];
+                break;
+                case 18:
+                    casillas[24][20].setText("   💀"); casillas[24][20].setForeground(Color.black);
+                    casillas[1][23].setText("  🐝");casillas[1][23].setForeground(Color.orange); abejaDef1=casillas[1][23];
+                break;
+                case 19:
+                    casillas[1][23].setText("  ");
+                    casillas[3][24].setText("  🐝");casillas[3][24].setForeground(Color.orange); abejaDef1=casillas[3][24];
+                case 20:
+                    casillas[3][24].setText("  ");
+                    casillas[5][25].setText("  🐝");casillas[5][25].setForeground(Color.orange); abejaDef1=casillas[5][25];
+                break;
+                case 21:
+                    casillas[5][25].setText("  ");
+                    casillas[7][26].setText("  🐝");casillas[7][26].setForeground(Color.orange); abejaDef1=casillas[7][26];
+                break;
+                case 22:
+                    casillas[7][26].setText("  ");
+                    casillas[9][27].setText("  🐝");casillas[9][27].setForeground(Color.orange); abejaDef1=casillas[9][27];
+                    casillas[10][27].setText("   "); 
+                    casillas[10][28].setText("   ");casillas[11][28].setText("   ");
+                    casillas[24][12].setText("   🌸");casillas[24][12].setForeground(Color.red);
+                    casillas[0][13].setText("   🌸"); casillas[0][13].setForeground(Color.red);
+                    casillas[0][14].setText("   🌸"); casillas[0][14].setForeground(Color.red);
+                    casillas[1][14].setText("   🌸"); casillas[1][14].setForeground(Color.red);recurso7=casillas[4][22];
+                break;
+                case 23:
+                    casillas[9][27].setText("  ");
+                    casillas[11][27].setText("  🐝");casillas[11][27].setForeground(Color.orange); abejaDef1=casillas[11][27];
+                break;
+                case 24:
+                    casillas[11][27].setText("  ");
+                    casillas[13][27].setText("  🐝");casillas[13][27].setForeground(Color.orange); abejaDef1=casillas[13][27];
+                break;
+                case 25:
+                    casillas[13][27].setText("  ");
+                    casillas[15][27].setText("  🐝");casillas[15][27].setForeground(Color.orange); abejaDef1=casillas[15][27];
+                break;
+                case 26:
+                    casillas[15][27].setText("  ");
+                    casillas[17][27].setText("  🐝");casillas[17][27].setForeground(Color.orange); abejaDef1=casillas[17][27];
+                break;
+                case 27:
+                    casillas[17][27].setText("   💀");casillas[17][27].setForeground(Color.black);
+                    casillas[19][27].setText("  🐝");casillas[19][27].setForeground(Color.orange); abejaDef1=casillas[19][27];
+                break;
+                case 28:
+                    casillas[19][27].setText("   ");
+                    casillas[21][27].setText("  🐝");casillas[21][27].setForeground(Color.orange); abejaDef1=casillas[21][27];
+                break;
+                case 29:
+                    casillas[21][27].setText("   ");
+                    casillas[23][27].setText("  🐝");casillas[23][27].setForeground(Color.orange); abejaDef1=casillas[23][27];
+                break;
+                case 30:
+                    casillas[23][27].setText("   ");
+                    casillas[24][28].setText("  🐝");casillas[24][28].setForeground(Color.orange); abejaDef1=casillas[24][28];
+                break;
+                case 31:
+                    casillas[24][28].setText("   ");
+                    JOptionPane.showMessageDialog(ventana, "¡Ha ingresado a la base una abeja!");
+                break;
+            }       
+        }
     }
 }
