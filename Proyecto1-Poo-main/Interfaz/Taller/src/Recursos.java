@@ -13,6 +13,8 @@ public class Recursos extends Objetos{
         lista[4]=recurso5;
         lista[5]=recurso6;
         lista[6]=recurso7;
+        lista[7]=recurso8;
+        lista[8]=recurso9;
     }
     public void acciones(){
         while(lista.length!=0){
@@ -41,7 +43,7 @@ public class Recursos extends Objetos{
             else if(abejaDef1==recurso8||abejaDef2==recurso8||abeja4==recurso8){
                 casillas[1][9].setText(" ");
             }
-            else if(abeja4==recurso7||abeja5==recurso7||abeja6==recurso7){
+            else if(abeja4==recurso9||abeja5==recurso9||abeja6==recurso9){
                 casillas[19][23].setText(" ");
             }
         }
