@@ -1,17 +1,15 @@
 import javax.swing.JLabel;
 
 public class Objetos extends Interfaz{
-    public JLabel lista[] = new JLabel[6];
-
+    public static JLabel lista[] = new JLabel[9];
 
     public Objetos(JLabel[] lista,JLabel recurso1){
         super(recurso1);
-        this.lista=lista;
+        Objetos.lista=lista;
     }
 
-    public void acciones(){
-        super.agregarComponentes();
-        
+    public static void acciones(){
+        Recursos.agregarRecursos();
+        Amenazas.acciones1();
     }
-    
 }
