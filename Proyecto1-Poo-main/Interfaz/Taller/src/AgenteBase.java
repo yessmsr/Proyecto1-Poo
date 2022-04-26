@@ -1,4 +1,3 @@
-
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import javax.swing.JLabel;
@@ -42,6 +41,10 @@ public class AgenteBase extends Interfaz{
 
                 break;
                 case 2:
+                    casillas[12][14].setText("   🌸");casillas[12][14].setForeground(Color.red);
+                    casillas[13][14].setText("   🌸"); casillas[13][14].setForeground(Color.red);
+                    casillas[13][15].setText("   🌸"); casillas[13][15].setForeground(Color.red);
+                    casillas[14][15].setText("   🌸"); casillas[14][15].setForeground(Color.red);recurso7=casillas[4][22];
                     casillas[9][0].setText(" ");
                     casillas[10][0].setText(" ");
                     casillas[11][0].setText(" ");
